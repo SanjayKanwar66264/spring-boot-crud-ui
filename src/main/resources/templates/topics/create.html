@@ -1,0 +1,13 @@
+<html layout:decorator="layout" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<div layout:fragment="content">
+    <form class="form-horizontal" th:object="${topic}" th:action="@{/topics/save}" method="post">
+        <div class="form-group">
+            <label for="name">Example label</label>
+            <input type="text" class="form-control" th:field="*{name}" />
+        </div>
+        <div class="form-group">
+            <input type="submit" />
+        </div>
+    </form>
+</div>
+</html>

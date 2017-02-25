@@ -1,0 +1,29 @@
+<html layout:decorator="layout" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<div layout:fragment="content">
+<a class="btn btn-primary" href="/topics/create">Add new Topic</a>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    <tr th:each="topic : ${topics}">
+        <td th:text="${topic.id}"></td>
+        <td th:text="${topic.name}"></td>
+        <td>
+            <a th:href="@{'topics/{id}/edit'(id=${topic.id})}" class="edit" th:attr="name=${topic.name}">
+                <span class="fa-stick">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </span>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{'topics/{id}'(id=${topic.id})}" class="delete" th:attr="name=${topic.name}">
+                <span class="fa-stick">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </span>
+            </a>
+        </td>
+    </tr>
+</table>
+</div>
+</html>
